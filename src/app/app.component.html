@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Weather in your city</h1>
+    <div class="search-container">
+      <input type="text" placeholder="Enter city" [(ngModel)]="city" (blur)="getWeatherDetails()">
+      <button (click)="getWeatherDetails()"><i class="fas fa-question-circle"></i>Search</button>
+      <div *ngIf="loading" class="loader"></div>
+    </div>
+    <div *ngIf="error" class="error-message">{{ error }}</div>
+    <div class="weather-cards" *ngIf="data.length > 0">
+      <div *ngFor="let data of data" class="weather-card">
+        <h2>Date: {{ data.dt_txt | date: 'dd/MM/yyyy' }}</h2>
+        <table>
+          <tr>
+            <th class="firstHead">Temperature</th>
+            <th class="firstHead">Min</th>
+            <th class="firstHead">Max</th>
+          </tr>
+          <tr>
+            <td>Temperature</td>
+            <td>{{ data.main.temp_min }}°C</td>
+            <td>{{ data.main.temp_max }}°C</td>
+          </tr>
+          <tr>
+            <th>Pressure</th>
+            <td colspan="2">{{ data.main.pressure }} hPa</td>
+          </tr>
+          <tr>
+            <th>Humidity</th>
+            <td colspan="2">{{ data.main.humidity }}%</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+</body>
+</html>

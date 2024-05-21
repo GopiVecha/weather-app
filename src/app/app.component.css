@@ -1,0 +1,138 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    text-align: center;
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+h1 {
+    color: #ff6600;
+}
+
+.search-container {
+    margin-bottom: 20px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-container input {
+    padding: 10px;
+    width: 250px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.search-container button {
+    padding: 10px 20px;
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-container button:hover {
+    background-color: #e55d00;
+}
+
+/* button::before {
+    content: " ? ";
+  } */
+
+  .firstHead{
+    background-color: grey;
+  }
+
+.loader {
+    border: 4px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 4px solid #ff6600;
+    width: 40px;
+    height: 40px;
+    animation: spin 2s linear infinite;
+    display: none;
+    position: absolute;
+    top: 80px;
+}
+
+.loader {
+  display: block;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.weather-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.weather-card {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    width: 250px;
+    text-align: center;
+}
+
+.weather-card h2 {
+    background-color: #ff6600;
+    color: white;
+    padding: 10px;
+    border-radius: 5px 5px 0 0;
+    margin: -10px -10px 10px -10px;
+}
+
+.weather-card table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.weather-card table, .weather-card th, .weather-card td {
+    border: 1px solid #ccc;
+}
+
+.weather-card th, .weather-card td {
+    padding: 5px;
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+    .search-container {
+        flex-direction: column;
+    }
+
+    .search-container input, .search-container button {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    .weather-card {
+        width: 100%;
+        margin: 10px 0;
+    }
+}
+
+.error-message {
+    color: red;
+    margin-bottom: 20px;
+}
